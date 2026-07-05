@@ -24,5 +24,23 @@ class Owner:
             self.email = email
             print("Email Changed")
 
+    def to_dict(self):
+        return{
+            "Id": self.id,
+            "Name": self.name,
+            "Phone Number": self.__phone_number,
+            "Email": self.email
+        }
+    
+    @classmethod
+    def from_dict(cls,data):
+        return cls(
+            data["Id"],
+            data["Name"],
+            data["Phone Number"],
+            data["Email"]
+        )
+
+
 
 
