@@ -34,7 +34,24 @@ class Category:
             print("="*20)
             print(item)
         print("="*20)
+
+    def to_dict(self):
+        return{
+            "Id":self.id,
+            "Name": self.name,
+            "Menu items": [item.to_dict() for item in self.menu_items]
+        }
+    
+    @classmethod
+    def from_dict(cls,data):
+        category =  cls(
+            data["Id"],
+            data["Name"],
+        )   
         
+        category.menu_items = [MenuItem.from_dict(item) for item in data["Menu items"]]
+
+        return category
 
 
 

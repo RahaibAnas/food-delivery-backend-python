@@ -9,7 +9,7 @@ owner = Owner(1,"Rahaib","03218856814","rahaib@gmail.com")
 
 # Pizzas
 
-menu_item_01 = MenuItem(1,"cheez pizza","this is cheez pizza",20.9,True,20)
+menu_item_01 = MenuItem(1,"cheez pizza","this is cheez pizza",10.9,True,20)
 menu_item_02 = MenuItem(2,"Margherita pizza","this is Margherita pizza",10.9,True,20)
 menu_item_03 = MenuItem(3,"Pepperoni Pizza","this is Pepperoni Pizza",15.9,True,20)
 menu_item_04 = MenuItem(4,"BBQ Chicken Pizza","this is BBQ Chicken Pizza",17.9,True,20)
@@ -67,4 +67,6 @@ resturant.add_category(category2)
 resturant.add_category(category3)
 resturant.add_category(category4)
 
-resturant.show_items()
+data = resturant.to_dict()
+
+print(data)

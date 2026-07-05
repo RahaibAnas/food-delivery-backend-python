@@ -3,7 +3,7 @@ class MenuItem:
         self.id = id
         self.name = name
         self.description = description
-        if price > 0:
+        if price < 0:
             raise ValueError("Value must be greater than zero")
         self.price = price
         self.avaliable = avaliable
@@ -41,5 +41,28 @@ class MenuItem:
     def update_description(self,new_description:str):
         self.description = new_description
         print("Description change")
+
+    def to_dict(self):
+        return{
+            "Id": self.id,
+            "Name": self.name,
+            "Description": self.description,
+            "Price": self.price,
+            "Avalibility": self.avaliable,
+            "Preparation time": self.preparation_time
+        }
+    
+    @classmethod
+    def from_dict(cls,data):
+        return cls(
+            data["Id"],
+            data["Name"],
+            data["Description"],
+            data["Price"],
+            data["Avalibility"],
+            data["Preparation time"]
+
+        )
+        
 
 

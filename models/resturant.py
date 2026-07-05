@@ -83,6 +83,39 @@ class Resturant:
             self.is_active = False
             print("Resturant is Close")
 
+    def to_dict(self):
+        return{
+            "Id": self.id,
+            "Name": self.name,
+            "Description": self.description,
+            "Email": self.email,
+            "Phone": self.phone,
+            "Address": self.address,
+            "Opening time": self.opening_time,
+            "Closing time": self.closing_time,
+            "Is active": self.is_active,
+            "Owner": self.owner.to_dict(),
+            "Categories": [category.to_dict() for category in self.categories]
+        }
+    
+    @classmethod
+    def from_dict(cls,data):
+        resturant =  cls(
+            data["Id"],
+            data["Name"],
+            data["Description"],
+            data["Email"],
+            data["Phone"],
+            data["Address"],
+            data["Opening time"],
+            data["Closing time"],
+            data["Is active"],
+            Owner.from_dict(data["Owner"])
+        )
+
+        resturant.categories = [Category.from_dict(category) for category in data["Categories"]]
+
+        return resturant
 
 
     
