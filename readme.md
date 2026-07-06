@@ -34,11 +34,17 @@ food-delivery-backend-python/
 ├── Documents/
 │   └── uml.excalidraw
 │
+├── data/
+│   └── Restaurants_Repository.json
+│
 ├── models/
 │   ├── owner.py
 │   ├── restaurant.py
 │   ├── category.py
 │   └── menu_item.py
+│
+├── repositories/
+│   └── restaurant_repository.py
 │
 ├── main.py
 └── README.md
@@ -76,6 +82,38 @@ Concepts practiced:
 - Association
 - Business Methods
 - Clean Class Design
+
+---
+
+## Sprint 3 — Repository Pattern
+
+Implemented a persistence layer using the Repository Pattern.
+
+### Repository Features
+
+- ✅ Create JSON storage
+- ✅ Save entities
+- ✅ Retrieve all entities
+- ✅ Find entity by ID
+- ✅ Update entity
+- ✅ Delete entity
+
+### Serialization
+
+Implemented serialization for all domain models using:
+
+- `to_dict()`
+- `from_dict()`
+
+### Concepts Practiced
+
+- Repository Pattern
+- Separation of Concerns
+- Data Persistence
+- JSON Serialization
+- Layered Architecture
+- Single Responsibility Principle
+
 
 ---
 
@@ -153,15 +191,20 @@ Refactoring
 
 ---
 
-## 📈 Project Status
 
-Current Sprint:
+# 📈 Project Status
 
-**Sprint 2 — Domain Models ✅**
+**Current Version**
 
-Next Sprint:
+**v1.1.0**
 
-**Sprint 3 — Repository Pattern**
+**Current Sprint**
+
+✅ Sprint 3 — Repository Pattern
+
+**Next Sprint**
+
+🚀 Sprint 4 — Service Layer
 
 ---
 
