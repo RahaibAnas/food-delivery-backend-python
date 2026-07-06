@@ -1,7 +1,7 @@
 from .category import Category
 from .owner import Owner
 
-class Resturant:
+class Restaurant:
     def __init__(self,id:int,name:str,description:str,email:str,phone:str,address:str,openingTime: str,closingTime:str,isActive:bool,owner:Owner) -> None:
         self.id = id
         self.name = name
@@ -66,22 +66,22 @@ class Resturant:
             category.show_items()
 
     def is_open(self):
-        print("Resturant Open" if self.is_active else "Resturant Closed")
+        print("Restaurant Open" if self.is_active else "Restaurant Closed")
 
-    def open_resturant(self):
+    def open_restaurant(self):
         if self.is_active:
-            print("Resturant is Open")
+            print("Restaurant is Open")
         else:
             self.is_active = True
-            print("Resturant is Open")
+            print("Restaurant is Open")
 
 
-    def close_resturant(self):
+    def close_restaurant(self):
         if not(self.is_active):
-            print("Resturant is Close")
+            print("Restaurant is Close")
         else:
             self.is_active = False
-            print("Resturant is Close")
+            print("Restaurant is Close")
 
     def to_dict(self):
         return{
@@ -100,7 +100,7 @@ class Resturant:
     
     @classmethod
     def from_dict(cls,data):
-        resturant =  cls(
+        restaurant =  cls(
             data["Id"],
             data["Name"],
             data["Description"],
@@ -113,9 +113,9 @@ class Resturant:
             Owner.from_dict(data["Owner"])
         )
 
-        resturant.categories = [Category.from_dict(category) for category in data["Categories"]]
+        restaurant.categories = [Category.from_dict(category) for category in data["Categories"]]
 
-        return resturant
+        return restaurant
 
 
     
