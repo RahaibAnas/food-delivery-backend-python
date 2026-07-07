@@ -3,6 +3,7 @@ from models.menu_item import MenuItem
 from models.owner import Owner
 from models.restaurant import Restaurant
 from repositories.restaurant_repository import RestaurantRepository
+from services.restaurant_service import RestaurantService
 
 # Owner
 
@@ -61,33 +62,29 @@ category4.add_item(menu_item_31,menu_item_32,menu_item_33,menu_item_34)
 
 #  Restaurant
 
-restaurant1 = Restaurant(1,"BFC","this is BFC","bfc@gmail.com","03001234567","lahore","10:00 AM","10:10 PM",True,owner,)
+restaurant1 = Restaurant(1,"BFC","this is BFC","bfc@gmail.com","03001234567","lahore","10:00","11:10",True,owner,)
 
 restaurant1.add_category(category1)
 restaurant1.add_category(category2)
 restaurant1.add_category(category3)
+
 restaurant1.add_category(category4)
 
-restaurant2 = Restaurant(2,"KFC","this is BFC","kfc@gmail.com","03001234567","lahore","10:00 AM","10:10 PM",True,owner,)
+restaurant2 = Restaurant(2,"KFC","this is KFC","kfc@gmail.com","030012345678","lahore","10:00","22:10",True,owner,)
 
 restaurant2.add_category(category1)
 restaurant2.add_category(category2)
 restaurant2.add_category(category3)
+
 restaurant2.add_category(category4)
 
-Rp = RestaurantRepository()
+restRepo = RestaurantRepository()
+
+restService = RestaurantService(restRepo)
 
 
-Rp.save(restaurant1)
-Rp.save(restaurant2)
+restService.open_restaurant(2)
 
-
-print(Rp.get_all())
-
-
-print(Rp.find_by_id(1))
-
-Rp.delete(1)
 
 
 

@@ -69,6 +69,33 @@ class RestaurantRepository:
                 return restaurant
             
         return None
+            
+    def find_by_name(self,restaurantName:int):
+        data = self.get_all()
+
+        for restaurant in data:
+            if restaurant.name == restaurantName:
+                return restaurant
+            
+        return None
+    
+    def find_by_phone(self,restaurantPhone:int):
+        data = self.get_all()
+
+        for restaurant in data:
+            if restaurant.phone == restaurantPhone:
+                return restaurant
+            
+        return None
+
+    def find_by_email(self,restaurantEmail:int):
+        data = self.get_all()
+
+        for restaurant in data:
+            if restaurant.email == restaurantEmail:
+                return restaurant
+            
+        return None
 
     def update(self,restaurant:Restaurant):
         
@@ -92,9 +119,11 @@ class RestaurantRepository:
                 data_list = [obj.to_dict() for obj in data]
                 self.write_all(data_list)
                 print("Restaurant Deleted...")
-                return
+                return f"Restaurant Deleted"
             
         print("Restaurant not found")
+        
+
 
         
 

@@ -3,8 +3,6 @@ class MenuItem:
         self.id = id
         self.name = name
         self.description = description
-        if price < 0:
-            raise ValueError("Value must be greater than zero")
         self.price = price
         self.avaliable = avaliable
         self.preparation_time = prepare_time
@@ -16,7 +14,7 @@ class MenuItem:
             f"Description: {self.description}\n"
             f"Price: {self.price}\n"
             f"Avalibility: {self.avaliable}\n"
-            f"Preparation_time: {self.preparation_time}"
+            f"Preparation_time: {self.preparation_time} minutes"
         )
     
     def change_price(self,new_price:float):
