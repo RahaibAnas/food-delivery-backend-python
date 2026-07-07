@@ -11,6 +11,8 @@ Instead of building a simple CRUD application, this project follows a real softw
 - Design Patterns
 - Layered Architecture
 - Repository Pattern
+- Service Layer
+- Dependency Injection
 - FastAPI (Upcoming)
 - PostgreSQL (Upcoming)
 
@@ -18,7 +20,7 @@ The project is being developed **sprint by sprint**, similar to how real softwar
 
 ---
 
-## 🎯 Project Goal
+# 🎯 Project Goal
 
 The goal of this project is to understand **how real backend applications are designed**, not just how to write Python code.
 
@@ -26,7 +28,7 @@ Each sprint focuses on learning and applying software engineering concepts befor
 
 ---
 
-## 📂 Current Project Structure
+# 📂 Current Project Structure
 
 ```
 food-delivery-backend-python/
@@ -46,26 +48,38 @@ food-delivery-backend-python/
 ├── repositories/
 │   └── restaurant_repository.py
 │
+├── services/
+│   └── restaurant_service.py
+│
 ├── main.py
 └── README.md
 ```
 
 ---
 
-## ✅ Completed Sprints
+# ✅ Completed Sprints
 
-### Sprint 1 — Requirements & System Design
+## Sprint 1 — Requirements & System Design
 
-- Business Requirements
-- Domain Analysis
-- Business Rules
-- UML Class Diagram
-- Entity Relationships
-- Object-Oriented Design
+### Completed
+
+- ✅ Business Requirements
+- ✅ Domain Analysis
+- ✅ Business Rules
+- ✅ UML Class Diagram
+- ✅ Entity Relationships
+- ✅ Object-Oriented Design
+
+### Concepts Practiced
+
+- Requirement Analysis
+- Domain Modeling
+- UML
+- Software Design
 
 ---
 
-### Sprint 2 — Domain Models
+## Sprint 2 — Domain Models
 
 Implemented core domain models:
 
@@ -74,7 +88,7 @@ Implemented core domain models:
 - ✅ Category
 - ✅ MenuItem
 
-Concepts practiced:
+### Concepts Practiced
 
 - Classes & Objects
 - Encapsulation
@@ -114,14 +128,62 @@ Implemented serialization for all domain models using:
 - Layered Architecture
 - Single Responsibility Principle
 
+---
+
+## Sprint 4 — Service Layer
+
+Implemented the application's business logic using a dedicated **Service Layer**.
+
+The service layer acts as the bridge between the application and the repository, ensuring that all business rules are validated before data is persisted.
+
+### Service Features
+
+#### Restaurant Management
+
+- ✅ Create Restaurant
+- ✅ Get Restaurant by ID
+- ✅ Get All Restaurants
+- ✅ Update Restaurant
+- ✅ Delete Restaurant
+- ✅ Open Restaurant
+- ✅ Close Restaurant
+
+#### Category Management
+
+- ✅ Add Category
+- ✅ Remove Category
+
+#### Menu Management
+
+- ✅ Add Menu Item
+- ✅ Remove Menu Item
+
+### Business Validations
+
+- ✅ Duplicate Restaurant Validation
+- ✅ Duplicate Category Validation
+- ✅ Duplicate Menu Item Validation
+- ✅ Opening & Closing Time Validation
+- ✅ Restaurant Information Validation
+- ✅ Category Validation
+- ✅ Menu Item Validation
+
+### Concepts Practiced
+
+- Service Layer Pattern
+- Layered Architecture
+- Business Logic Separation
+- Dependency Injection
+- Single Responsibility Principle
+- Domain Validation
+- Exception Handling
+- Clean Code Practices
 
 ---
 
-## 🚀 Upcoming Sprints
+# 🚀 Upcoming Sprints
 
-- Repository Pattern
-- Service Layer
-- Dependency Injection
+- Controller Layer
 - Authentication
 - Authorization
 - Customer Module
@@ -130,31 +192,37 @@ Implemented serialization for all domain models using:
 - Payment Integration
 - Delivery Management
 - Notifications
-- PostgreSQL
+- PostgreSQL Integration
 - FastAPI REST APIs
 - Unit Testing
+- Logging
+- Docker
 - Deployment
 
 ---
 
-## 🛠️ Technologies
+# 🛠️ Technologies
+
+### Current
 
 - Python 3
 - Object-Oriented Programming
 - UML
+- JSON
 - Git & GitHub
 
-**Upcoming**
+### Upcoming
 
 - FastAPI
 - PostgreSQL
 - SQLAlchemy
 - Pydantic
 - JWT Authentication
+- Docker
 
 ---
 
-## 📖 Learning Objectives
+# 📖 Learning Objectives
 
 This project is designed to strengthen knowledge of:
 
@@ -163,52 +231,64 @@ This project is designed to strengthen knowledge of:
 - Software Design
 - UML
 - Design Patterns
+- Repository Pattern
+- Service Layer
+- Dependency Injection
+- Layered Architecture
 - Clean Architecture
 - Backend Development
 - REST API Development
 
 ---
 
-## 📌 Development Approach
+# 📌 Development Workflow
 
-Each feature is implemented following this workflow:
+Every feature follows the same software engineering process.
 
 ```
 Requirements
-      ↓
+      │
+      ▼
 Business Rules
-      ↓
+      │
+      ▼
 UML Design
-      ↓
+      │
+      ▼
 Domain Model
-      ↓
-Implementation
-      ↓
+      │
+      ▼
+Repository
+      │
+      ▼
+Service Layer
+      │
+      ▼
 Testing
-      ↓
+      │
+      ▼
 Refactoring
 ```
 
 ---
 
-
 # 📈 Project Status
 
-**Current Version**
+### Current Version
 
-**v1.1.0**
+**v1.2.0**
 
-**Current Sprint**
+### Current Sprint
 
-✅ Sprint 3 — Repository Pattern
+✅ Sprint 4 — Service Layer
 
-**Next Sprint**
+### Next Sprint
 
-🚀 Sprint 4 — Service Layer
+🚀 Sprint 5 — Controller Layer
 
 ---
 
-## 🤝 Feedback
+# 🤝 Feedback
 
 I'm building this project as part of my backend development journey. Feedback, suggestions, and code reviews are always welcome.
 
@@ -216,7 +296,7 @@ If you find something that can be improved, feel free to open an issue or submit
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 **Mian Rahaib**
 
