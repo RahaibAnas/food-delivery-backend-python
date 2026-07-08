@@ -78,7 +78,7 @@ class RestaurantController:
 
     def add_menu_item(self,restaurantId: int, categoryId: int, item: MenuItem):
         try:
-            self.self.service.add_menu_item(restaurantId,categoryId,item)
+            self.service.add_menu_item(restaurantId,categoryId,item)
         except ValueError as e:
             print(e)
         else:

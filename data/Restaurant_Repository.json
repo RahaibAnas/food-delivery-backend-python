@@ -4,10 +4,10 @@
         "Name": "BFC",
         "Description": "this is BFC",
         "Email": "bfc@gmail.com",
-        "Phone": "03001234567",
-        "Address": "lahore",
-        "Opening time": "10:00",
-        "Closing time": "11:10",
+        "Phone": "03221234567",
+        "Address": "SHEIKHUPURA-22",
+        "Opening time": "12:00",
+        "Closing time": "22:10",
         "Is active": false,
         "Owner": {
             "Id": 1,
@@ -15,159 +15,6 @@
             "Phone Number": "03218856814",
             "Email": "rahaib@gmail.com"
         },
-        "Categories": [
-            {
-                "Id": 1,
-                "Name": "Pizza",
-                "Menu items": [
-                    {
-                        "Id": 1,
-                        "Name": "cheez pizza",
-                        "Description": "this is cheez pizza",
-                        "Price": 10.9,
-                        "Avalibility": true,
-                        "Preparation time": 20
-                    },
-                    {
-                        "Id": 2,
-                        "Name": "Margherita pizza",
-                        "Description": "this is Margherita pizza",
-                        "Price": 10.9,
-                        "Avalibility": true,
-                        "Preparation time": 20
-                    },
-                    {
-                        "Id": 3,
-                        "Name": "Pepperoni Pizza",
-                        "Description": "this is Pepperoni Pizza",
-                        "Price": 15.9,
-                        "Avalibility": true,
-                        "Preparation time": 20
-                    },
-                    {
-                        "Id": 4,
-                        "Name": "BBQ Chicken Pizza",
-                        "Description": "this is BBQ Chicken Pizza",
-                        "Price": 17.9,
-                        "Avalibility": true,
-                        "Preparation time": 20
-                    }
-                ]
-            },
-            {
-                "Id": 2,
-                "Name": "Burgers",
-                "Menu items": [
-                    {
-                        "Id": 1,
-                        "Name": "Classic Beef Burger",
-                        "Description": "this is Classic Beef Burger",
-                        "Price": 5.9,
-                        "Avalibility": true,
-                        "Preparation time": 10
-                    },
-                    {
-                        "Id": 2,
-                        "Name": "Zinger Burger",
-                        "Description": "this is Zinger Burger",
-                        "Price": 3.9,
-                        "Avalibility": true,
-                        "Preparation time": 10
-                    },
-                    {
-                        "Id": 3,
-                        "Name": "Chicken Cheese Burger",
-                        "Description": "this is Chicken Cheese Burger",
-                        "Price": 12.9,
-                        "Avalibility": true,
-                        "Preparation time": 10
-                    },
-                    {
-                        "Id": 4,
-                        "Name": "Double Patty Burger",
-                        "Description": "this is Double Patty Burger",
-                        "Price": 8.9,
-                        "Avalibility": true,
-                        "Preparation time": 10
-                    }
-                ]
-            },
-            {
-                "Id": 3,
-                "Name": "Fries",
-                "Menu items": [
-                    {
-                        "Id": 1,
-                        "Name": "Regular Fries",
-                        "Description": "this is Regular Fries",
-                        "Price": 2.9,
-                        "Avalibility": true,
-                        "Preparation time": 15
-                    },
-                    {
-                        "Id": 2,
-                        "Name": "Loaded Fries",
-                        "Description": "this is Loaded Fries",
-                        "Price": 1.9,
-                        "Avalibility": true,
-                        "Preparation time": 15
-                    },
-                    {
-                        "Id": 3,
-                        "Name": "Cheese Fries",
-                        "Description": "this is Cheese Fries",
-                        "Price": 3.9,
-                        "Avalibility": true,
-                        "Preparation time": 15
-                    },
-                    {
-                        "Id": 4,
-                        "Name": "Masala Fries",
-                        "Description": "this is Masala Fries",
-                        "Price": 4.9,
-                        "Avalibility": true,
-                        "Preparation time": 15
-                    }
-                ]
-            },
-            {
-                "Id": 4,
-                "Name": "Sandwiches",
-                "Menu items": [
-                    {
-                        "Id": 1,
-                        "Name": "Club Sandwich",
-                        "Description": "this is Club Sandwich",
-                        "Price": 20.9,
-                        "Avalibility": true,
-                        "Preparation time": 20
-                    },
-                    {
-                        "Id": 2,
-                        "Name": "Grilled Chicken Sandwich",
-                        "Description": "this is Grilled Chicken Sandwich",
-                        "Price": 20.9,
-                        "Avalibility": true,
-                        "Preparation time": 20
-                    },
-                    {
-                        "Id": 3,
-                        "Name": "Crispy Chicken Sandwich",
-                        "Description": "this is Crispy Chicken Sandwich",
-                        "Price": 20.9,
-                        "Avalibility": true,
-                        "Preparation time": 20
-                    },
-                    {
-                        "Id": 4,
-                        "Name": "Tuna Sandwich",
-                        "Description": "this is Tuna Sandwich",
-                        "Price": 20.9,
-                        "Avalibility": true,
-                        "Preparation time": 20
-                    }
-                ]
-            }
-        ]
+        "Categories": []
     }
 ]

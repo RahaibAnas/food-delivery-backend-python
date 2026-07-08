@@ -19,16 +19,16 @@ class Restaurant:
         self.categories.append(category)
         print("Category Added...")
 
-    def remove_category(self,name:str):
+    def remove_category(self,id:int):
         for category in self.categories:
-            if category.name.lower() == name.lower():
+            if category.id == id:
                 self.categories.remove(category)
                 print("Category Deleted...")
                 return
             
-    def find_category(self,name:str):
+    def find_category(self,id:int):
         for category in self.categories:
-            if category.name.lower() == name.lower():
+            if category.id == id:
                 return category
             
     def update_details(self,name:str | None = "",description:str | None = "",email:str | None = "",phone:str | None = "",address:str | None = "",openingTime: str | None = "",closingTime:str | None = ""):

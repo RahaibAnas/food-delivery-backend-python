@@ -4,7 +4,8 @@ from models.owner import Owner
 from models.restaurant import Restaurant
 from repositories.restaurant_repository import RestaurantRepository
 from services.restaurant_service import RestaurantService
-from controller.restaurant_controller import RestaurantController
+from controllers.restaurant_controller import RestaurantController
+from application.app import FoodDeliveryApp
 
 # Owner
 
@@ -19,7 +20,7 @@ menu_item_04 = MenuItem(4,"BBQ Chicken Pizza","this is BBQ Chicken Pizza",17.9,T
 
 category1 = Category(1,"Pizza")
 
-category1.add_item(menu_item_01,menu_item_02,menu_item_03,menu_item_04)
+# category1.add_item(menu_item_01,menu_item_02,menu_item_03,menu_item_04)
 
 
 # Burgers
@@ -31,7 +32,7 @@ menu_item_14 = MenuItem(4,"Double Patty Burger","this is Double Patty Burger",8.
 
 category2 = Category(2,"Burgers")
 
-category2.add_item(menu_item_11,menu_item_12,menu_item_13,menu_item_14)
+# category2.add_item(menu_item_11,menu_item_12,menu_item_13,menu_item_14)
 
 # Fries
 
@@ -42,7 +43,7 @@ menu_item_24 = MenuItem(4,"Masala Fries","this is Masala Fries",4.9,True,15)
 
 category3 = Category(3,"Fries")
 
-category3.add_item(menu_item_21,menu_item_22,menu_item_23,menu_item_24)
+# category3.add_item(menu_item_21,menu_item_22,menu_item_23,menu_item_24)
 
 # Sandwiches
 
@@ -53,7 +54,7 @@ menu_item_34 = MenuItem(4,"Tuna Sandwich","this is Tuna Sandwich",20.9,True,20)
 
 category4 = Category(4,"Sandwiches")
 
-category4.add_item(menu_item_31,menu_item_32,menu_item_33,menu_item_34)
+# category4.add_item(menu_item_31,menu_item_32,menu_item_33,menu_item_34)
 
 
 # Catgories
@@ -63,35 +64,51 @@ category4.add_item(menu_item_31,menu_item_32,menu_item_33,menu_item_34)
 
 #  Restaurant
 
-restaurant1 = Restaurant(1,"BFC","this is BFC","bfc@gmail.com","03001234567","lahore","10:00","11:10",True,owner,)
+restaurant1 = Restaurant(1,"BFC","this is BFC","bfc@gmail.com","03221234567","SHEIKHUPURA-22","12:00","22:10",False,owner)
 
-restaurant1.add_category(category1)
-restaurant1.add_category(category2)
-restaurant1.add_category(category3)
+# restaurant1.add_category(category1)
+# restaurant1.add_category(category2)
+# restaurant1.add_category(category3)
 
-restaurant1.add_category(category4)
+# restaurant1.add_category(category4)
 
 restaurant2 = Restaurant(2,"KFC","this is KFC","kfc@gmail.com","030012345678","lahore","10:00","22:10",True,owner,)
 
-restaurant2.add_category(category1)
-restaurant2.add_category(category2)
-restaurant2.add_category(category3)
+# restaurant2.add_category(category1)
+# restaurant2.add_category(category2)
+# restaurant2.add_category(category3)
 
-restaurant2.add_category(category4)
-
-restRepo = RestaurantRepository()
-
-restService = RestaurantService(restRepo)
+# restaurant2.add_category(category4)
 
 
+app = FoodDeliveryApp()
 
-restCont= RestaurantController(restService)
+controller = app.restaurant_controller
 
-# restService.create_restaurant(restaurant1)
+# controller.create_restaurant(restaurant1)
 
-restCont.create_restaurant(restaurant1)
+# controller.add_category(1,category1)
+# controller.add_category(1,category2)
+# controller.add_category(1,category3)
+# controller.add_category(1,category4)
 
-restCont.close_restaurant(1)
+
+# controller.add_menu_item(1,3,menu_item_21)
+# controller.add_menu_item(1,3,menu_item_22)
+# controller.add_menu_item(1,1,menu_item_03)
+# controller.add_menu_item(1,1,menu_item_04)
+
+
+# controller.remove_category(1,1)
+
+
+# controller.remove_menu_item(1,3,1)
+
+# controller.delete_restaurant(2)
+
+# controller.update_restaurant(restaurant1)
+
+
 
 
 

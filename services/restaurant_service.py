@@ -34,10 +34,11 @@ class RestaurantService:
     
 
     def update_restaurant(self,restaurant:Restaurant):
-        self._validate_time(restaurant.opening_time,restaurant.closing_time)
-        self._validate_restaurant(restaurant)
-        if self.repository.update(restaurant):
-            return restaurant
+        vt = self._validate_time(restaurant.opening_time,restaurant.closing_time)
+        vr = self._validate_restaurant(restaurant)
+        if vt and vr:
+           self.repository.update(restaurant)
+           return restaurant
         raise ValueError("Restaurant not found...")
 
 
@@ -83,11 +84,9 @@ class RestaurantService:
 
 
     def remove_category(self,restaurantId:int,categoryId:int):
-        rest = self.repository.find_by_id(restaurantId)
-        category = self._find_category(restaurantId,categoryId)
-        
-        if category:
-            rest.remove_category(category)
+        rest = self.repository.find_by_id(restaurantId)     
+        if rest:
+            rest.remove_category(categoryId)
             self.repository.update(rest)
         else:
             raise ValueError("Restaurant not found...")
@@ -109,11 +108,13 @@ class RestaurantService:
     def remove_menu_item(self,restaurantId:int,categoryId:int,itemId:int):
         rest = self.repository.find_by_id(restaurantId)
         category = self._find_category(rest,categoryId)
-        item = self._find_menu_item(rest,category,itemId)
+        item = category.find_item(itemId)
         if item:
             category.remove_item(itemId)
             self.repository.update(rest)
             return item
+        else:
+            print("...")
          
 
 
@@ -132,6 +133,8 @@ class RestaurantService:
         if not restaurant.email.strip():
             raise ValueError("Restaurant must have an Email")
         
+        return restaurant
+        
 
     def _check_restaurant_duplicates(self,restaurant:Restaurant):
 
@@ -146,6 +149,8 @@ class RestaurantService:
         
         if self.repository.find_by_email(restaurant.email):
             raise ValueError("Restaurant Email already exists")
+        
+        return restaurant
 
     
     def _validate_time(self,opening_time:str,closing_time:str):
@@ -158,18 +163,9 @@ class RestaurantService:
         if opening >= closing:
                 raise ValueError("Opening time must be earlier than closing time.")
         
-    def _find_category(self,restaurant:Restaurant,categoryId:int):
-        if restaurant:
-            for category in restaurant.categories:
-                if category.id == categoryId:
-                    return category
-                
-    def _find_menu_item(self,restaurant:Restaurant,category:Category,itemId:int):
-        category = self._find_category(restaurant,category)
-        if category:
-            for item in category.menu_items:
-                if item.id == itemId:
-                    return item
+        return True
+        
+    
         
     def _validate_category(self,category):
         if not category.name.strip():
