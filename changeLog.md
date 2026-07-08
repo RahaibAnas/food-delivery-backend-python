@@ -8,6 +8,28 @@ The format is based on **Keep a Changelog**, and versioning loosely follows **Se
 
 ---
 
+## [v1.4.0] - 2026-07-08
+
+### Added
+
+#### Application Layer
+
+- Added `FoodDeliveryApp`
+- Introduced Application Layer as the composition root
+- Centralized dependency initialization
+- Connected Repository → Service → Controller
+- Added dependency injection at application startup
+
+### Improved
+
+- Removed object creation responsibilities from `main.py`
+- Simplified application startup
+- Improved scalability for future modules
+- Better dependency management
+- Cleaner project architecture
+
+---
+
 ## [v1.3.0] - 2026-07-08
 
 ### Added
@@ -164,7 +186,6 @@ Implemented serialization for all domain models using:
 
 ## Upcoming
 
-- Controller Layer
 - Authentication
 - Authorization
 - Customer Module

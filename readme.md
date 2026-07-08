@@ -31,35 +31,45 @@ Each sprint focuses on learning and applying software engineering concepts befor
 
 # 📂 Current Project Structure
 
-```text
-food-delivery-backend-python/
-│
-├── Documents/
-│   └── uml.excalidraw
-│
-├── controllers/
-│   └── restaurant_controller.py
-│
-├── services/
-│   └── restaurant_service.py
-│
-├── repositories/
-│   └── restaurant_repository.py
-│
-├── models/
-│   ├── owner.py
-│   ├── restaurant.py
-│   ├── category.py
-│   └── menu_item.py
-│
-├── data/
-│   └── Restaurants_Repository.json
-│
-├── main.py
-├── README.md
-└── CHANGELOG.md
 ```
-
+food-delivery-backend-python/
+      
+      │
+      ├── Documents/
+      │    |── application_uml.excalidraw.png
+      │    |── category_uml.excalidraw.png
+      │    |── menu_item_uml.excalidraw.png
+      │    |── owner_uml.excalidraw.png
+      │    |── restaurant_controller.excalidraw.png
+      │    |── restaurant_repository_uml.excalidraw.png
+      │    |── restaurant_services_uml.excalidraw.png
+      │    └── restaurant_uml.excalidraw.png      
+      │
+      ├── application/
+      │   └── app.py
+      │
+      ├── controllers/
+      │   └── restaurant_controller.py
+      │
+      ├── services/
+      │   └── restaurant_service.py
+      │
+      ├── repositories/
+      │   └── restaurant_repository.py
+      │
+      ├── models/
+      │   ├── owner.py
+      │   ├── restaurant.py
+      │   ├── category.py
+      │   └── menu_item.py
+      │
+      ├── data/
+      │   └── Restaurants_Repository.json
+      │
+      ├── main.py
+      ├── README.md
+      └── CHANGELOG.md
+```
 ---
 
 # ✅ Completed Sprints
@@ -224,6 +234,33 @@ The controller receives requests, delegates them to the service layer, handles e
 
 ---
 
+## Sprint 6 — Application Layer
+
+Implemented an Application Layer that serves as the application's composition root.
+
+The application layer is responsible for creating and connecting repositories, services, and controllers using dependency injection.
+
+### Features
+
+- ✅ FoodDeliveryApp
+- ✅ Application Startup
+- ✅ Dependency Injection
+- ✅ Composition Root
+- ✅ Controller Registration
+- ✅ Service Registration
+- ✅ Repository Registration
+
+### Concepts Practiced
+
+- Application Layer
+- Composition Root
+- Dependency Injection
+- Object Composition
+- Layered Architecture
+- Clean Architecture
+
+---
+
 # 🚀 Upcoming Sprints
 
 - Authentication & Authorization
@@ -277,6 +314,8 @@ This project is designed to strengthen knowledge of:
 - Repository Pattern
 - Service Layer
 - Controller Layer
+- Application Layer
+- Composition Root
 - Dependency Injection
 - Layered Architecture
 - Clean Architecture
@@ -289,6 +328,9 @@ This project is designed to strengthen knowledge of:
 
 ```
                 Client
+                   │
+                   ▼
+            FoodDeliveryApp
                    │
                    ▼
         RestaurantController
@@ -338,6 +380,9 @@ Service Layer
 Controller Layer
       │
       ▼
+Application layer
+      |
+      ▼
 Testing
       │
       ▼
@@ -350,15 +395,36 @@ Refactoring
 
 ## Current Version
 
-**v1.3.0**
+**v1.4.0**
 
 ## Current Sprint
 
-✅ Sprint 5 — Controller Layer
+✅ Sprint 6 — Application Layer
 
 ## Next Sprint
 
-🚀 Sprint 6 — Authentication & Authorization
+🚀 Sprint 7 — Authentication & Authorization
+
+---
+
+# 🗺️ Roadmap
+
+- [x] Sprint 1 — Requirements & UML
+- [x] Sprint 2 — Domain Models
+- [x] Sprint 3 — Repository Layer
+- [x] Sprint 4 — Service Layer
+- [x] Sprint 5 — Controller Layer
+- [x] Sprint 6 — Application Layer
+- [ ] Sprint 7 — Authentication & Authorization
+- [ ] Sprint 8 — Customer Module
+- [ ] Sprint 9 — Cart Module
+- [ ] Sprint 10 — Order Management
+- [ ] Sprint 11 — Payment Integration
+- [ ] Sprint 12 — Delivery Management
+- [ ] Sprint 13 — FastAPI REST APIs
+- [ ] Sprint 14 — PostgreSQL & SQLAlchemy
+- [ ] Sprint 15 — Unit Testing & Logging
+- [ ] Sprint 16 — Docker & Deployment
 
 ---
 
