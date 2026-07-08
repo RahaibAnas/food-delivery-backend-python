@@ -8,6 +8,46 @@ The format is based on **Keep a Changelog**, and versioning loosely follows **Se
 
 ---
 
+## [v1.3.0] - 2026-07-08
+
+### Added
+
+#### Controller Layer
+
+- Added `RestaurantController`
+- Introduced Controller Layer above the Service Layer
+- Applied Dependency Injection using `RestaurantService`
+
+#### Restaurant Controller
+
+- Create Restaurant
+- Get Restaurant by ID
+- Get All Restaurants
+- Update Restaurant
+- Delete Restaurant
+- Open Restaurant
+- Close Restaurant
+
+#### Category Controller
+
+- Add Category
+- Remove Category
+
+#### Menu Controller
+
+- Add Menu Item
+- Remove Menu Item
+
+### Improved
+
+- Added application entry layer
+- Better separation between presentation and business logic
+- Centralized exception handling
+- Reduced responsibilities of `main.py`
+- Improved layered architecture
+
+---
+
 ## [v1.2.0] - 2026-07-07
 
 ### Added

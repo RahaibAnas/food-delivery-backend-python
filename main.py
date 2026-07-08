@@ -4,6 +4,7 @@ from models.owner import Owner
 from models.restaurant import Restaurant
 from repositories.restaurant_repository import RestaurantRepository
 from services.restaurant_service import RestaurantService
+from controller.restaurant_controller import RestaurantController
 
 # Owner
 
@@ -83,8 +84,14 @@ restRepo = RestaurantRepository()
 restService = RestaurantService(restRepo)
 
 
-restService.open_restaurant(2)
 
+restCont= RestaurantController(restService)
+
+# restService.create_restaurant(restaurant1)
+
+restCont.create_restaurant(restaurant1)
+
+restCont.close_restaurant(1)
 
 
 
