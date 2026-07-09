@@ -31,7 +31,7 @@ class AuthService:
 
     def get_current_user(self):
         if self.current_user:
-            return self.current_user.name
+            return self.current_user
         raise ValueError("No user Logged in.")
 
     def is_logged_in(self):
@@ -43,7 +43,7 @@ class AuthService:
         self._check_duplicate(owner)
         self._validate_email(owner.email)
         self._validate_password(owner.password)
-        if not len(owner.phone_number) != 11 or not owner.phone_number.isdigit():
+        if not len(owner.phone_number) == 11 or not owner.phone_number.isdigit():
             raise ValueError("Invalid Phone Number")
 
     def _validate_email(self,email:str):

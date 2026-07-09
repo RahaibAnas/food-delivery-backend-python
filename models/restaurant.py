@@ -12,7 +12,7 @@ class Restaurant:
         self.opening_time = openingTime
         self.closing_time = closingTime
         self.is_active = isActive
-        self.owner : Owner = owner
+        self.owner = owner
         self.categories : list[Category] = []
 
     def add_category(self,category:Category):

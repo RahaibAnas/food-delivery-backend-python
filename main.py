@@ -65,14 +65,15 @@ category4 = Category(4,"Sandwiches")
 # category4.add_item(menu_item_31,menu_item_32,menu_item_33,menu_item_34)
 
 
-# Catgories
+# owners
 
-
+owner1 = Owner(1,"Rahaib","03001234567","rahaib@gmail.com","Qwerty@1234")
+owner2 = Owner(2,"Meer","03218856814","meer@gmail.com","Qwerty@1234")
 
 
 #  Restaurant
 
-restaurant1 = Restaurant(1,"BFC","this is BFC","bfc@gmail.com","03221234567","SHEIKHUPURA-22","12:00","22:10",False,owner)
+restaurant1 = Restaurant(1,"BFC","this is BFC","bfc@gmail.com","03221234567","SHEIKHUPURA","12:00","22:10",False,owner1)
 
 # restaurant1.add_category(category1)
 # restaurant1.add_category(category2)
@@ -80,7 +81,7 @@ restaurant1 = Restaurant(1,"BFC","this is BFC","bfc@gmail.com","03221234567","SH
 
 # restaurant1.add_category(category4)
 
-restaurant2 = Restaurant(2,"KFC","this is KFC","kfc@gmail.com","030012345678","lahore","10:00","22:10",True,owner,)
+restaurant2 = Restaurant(2,"KFC","this is KFC","kfc@gmail.com","03001234567","lahore","10:00","22:10",True,owner2)
 
 # restaurant2.add_category(category1)
 # restaurant2.add_category(category2)
@@ -89,49 +90,34 @@ restaurant2 = Restaurant(2,"KFC","this is KFC","kfc@gmail.com","030012345678","l
 # restaurant2.add_category(category4)
 
 
-# app = FoodDeliveryApp()
-
-# controller = app.restaurant_controller
-
-# controller.create_restaurant(restaurant1)
-
-# controller.add_category(1,category1)
-# controller.add_category(1,category2)
-# controller.add_category(1,category3)
-# controller.add_category(1,category4)
-
-
-# controller.add_menu_item(1,3,menu_item_21)
-# controller.add_menu_item(1,3,menu_item_22)
-# controller.add_menu_item(1,1,menu_item_03)
-# controller.add_menu_item(1,1,menu_item_04)
-
-
-# controller.remove_category(1,1)
-
-
-# controller.remove_menu_item(1,3,1)
-
-# controller.delete_restaurant(2)
-
-# controller.update_restaurant(restaurant1)
 
 
 
 
-owner = Owner(1,"Rahaib","03218857876814","rahaib@gmail.com","Qwerty@1234")
-
-ownerRepo =  OwnerRepository()
 
 
-authServ = AuthService(ownerRepo)
 
-authCont = AuthController(authServ)
 
-authCont.login("rahaib@gmail.com","Qwerty@1234")
-print(authServ.get_current_user())
+app = FoodDeliveryApp()
 
-authCont.logout()
+controller = app.restaurant_controller
+auth = app.auth_controller
+
+# auth.login("rahaib@gmail.com","Qwerty@1234")
+
+# print(auth.current_user().id)
+
+# print(controller.add_menu_item(1,2,menu_item_11))
+# print(controller.add_menu_item(1,2,menu_item_12))
+# print(controller.add_menu_item(1,2,menu_item_13))
+
+
+
+
+
+controller.delete_restaurant(1)
+
+
 
 
 

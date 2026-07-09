@@ -10,13 +10,15 @@ from controllers.auth_controller import AuthController
 
 class FoodDeliveryApp:
     def __init__(self):
-        restaurant_repository = RestaurantRepository()
-        restaurant_services = RestaurantService(restaurant_repository)
-        self.restaurant_controller = RestaurantController(restaurant_services)
-
         owner_repository = OwnerRepository()
         auth_service =  AuthService(owner_repository)
         self.auth_controller = AuthController(auth_service)
+
+        restaurant_repository = RestaurantRepository()
+        restaurant_services = RestaurantService(restaurant_repository,auth_service)
+        self.restaurant_controller = RestaurantController(restaurant_services)
+
+        
 
     def start(self):
         

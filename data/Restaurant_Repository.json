@@ -1,1 +1,36 @@
-[]
+[
+    {
+        "Id": 2,
+        "Name": "KFC",
+        "Description": "this is KFC",
+        "Email": "kfc@gmail.com",
+        "Phone": "03001234567",
+        "Address": "lahore",
+        "Opening time": "10:00",
+        "Closing time": "22:10",
+        "Is active": false,
+        "Owner": {
+            "Id": 2,
+            "Name": "Meer",
+            "Phone Number": "03218856814",
+            "Email": "meer@gmail.com",
+            "Password": "Qwerty@1234"
+        },
+        "Categories": [
+            {
+                "Id": 1,
+                "Name": "Pizza",
+                "Menu items": [
+                    {
+                        "Id": 2,
+                        "Name": "Margherita pizza",
+                        "Description": "this is Margherita pizza",
+                        "Price": 10.9,
+                        "Avalibility": true,
+                        "Preparation time": 20
+                    }
+                ]
+            }
+        ]
+    }
+]
