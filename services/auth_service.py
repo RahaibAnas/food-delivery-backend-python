@@ -9,44 +9,41 @@ class AuthService:
 
     def register(self,owner:Owner):
         self._validate_owner(owner)
-
         self.repository.save(owner)
-        print("Owner Registered")
+        return owner
 
     def login(self,email:str,password:str):
         self._validate_email(email)
         self._validate_password(password)
         owner = self.repository.find_by_email(email)
         if owner:
-            if owner.password == password:
-                self.current_user = owner.to_dict()
-                print("login Successful")
+            if owner.verify_password(password):
+                self.current_user = owner
                 return self.current_user
         raise ValueError("Invalid Email or Password")
 
     def logout(self):
         if self.current_user:
             self.current_user = None
-            print("Logged out")
             return
         raise ValueError("No User is logged in")
         
 
     def get_current_user(self):
         if self.current_user:
-            return self.current_user
+            return self.current_user.name
         raise ValueError("No user Logged in.")
 
     def is_logged_in(self):
         if self.current_user:
-            return self.current_user
+            return True
 
 
     def _validate_owner(self,owner:Owner):
         self._check_duplicate(owner)
         self._validate_email(owner.email)
         self._validate_password(owner.password)
-        if len(owner.phone_number) < 11:
+        if not len(owner.phone_number) != 11 or not owner.phone_number.isdigit():
             raise ValueError("Invalid Phone Number")
 
     def _validate_email(self,email:str):
@@ -58,27 +55,27 @@ class AuthService:
 
 
     def _validate_password(self,password:str):
-        a = False 
+        has_upper = False 
         for p in password:
             if  p.isupper():
-                a = True
+                has_upper = True
                 break     
-        b=False
+        has_lower =False
         for p in password:
             if  p.islower():
-                b = True
+                has_lower = True
                 break            
-        c=False
+        has_digit =False
         for p in password:
             if  p.isdecimal():
-                c = True
+                has_digit = True
                 break
-        d=False
+        has_symbol=False
         for p in password:
             if p  in "!@#$%^&*<>?/|":
-                 d = True
+                 has_symbol = True
                  break
-        if not a or not b or not c or not d or len(password) < 8:
+        if not has_upper or not has_lower or not has_digit or not has_symbol or len(password) < 8:
             raise ValueError("Invalid Password")
 
 
