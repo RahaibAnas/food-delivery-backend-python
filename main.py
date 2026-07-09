@@ -2,14 +2,22 @@ from models.category import Category
 from models.menu_item import MenuItem
 from models.owner import Owner
 from models.restaurant import Restaurant
+
 from repositories.restaurant_repository import RestaurantRepository
+from repositories.owner_repository import OwnerRepository
+
 from services.restaurant_service import RestaurantService
+from services.auth_service import AuthService
+
 from controllers.restaurant_controller import RestaurantController
+from controllers.auth_controller import AuthController
+
 from application.app import FoodDeliveryApp
+ 
 
 # Owner
 
-owner = Owner(1,"Rahaib","03218856814","rahaib@gmail.com")
+owner = Owner(1,"Rahaib","03218856814","rahaib@gmail.com","qwerty")
 
 # Pizzas
 
@@ -81,9 +89,9 @@ restaurant2 = Restaurant(2,"KFC","this is KFC","kfc@gmail.com","030012345678","l
 # restaurant2.add_category(category4)
 
 
-app = FoodDeliveryApp()
+# app = FoodDeliveryApp()
 
-controller = app.restaurant_controller
+# controller = app.restaurant_controller
 
 # controller.create_restaurant(restaurant1)
 
@@ -107,6 +115,26 @@ controller = app.restaurant_controller
 # controller.delete_restaurant(2)
 
 # controller.update_restaurant(restaurant1)
+
+
+
+
+owner = Owner(1,"Rahaib","03218857876814","rahaib@gmail.com","Qwerty@1234")
+
+ownerRepo =  OwnerRepository()
+
+
+authServ = AuthService(ownerRepo)
+
+authCont = AuthController(authServ)
+
+authCont.login("rahaib@gmail.com","Qwerty@1234")
+print(authServ.get_current_user())
+
+authCont.logout()
+
+
+
 
 
 
