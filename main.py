@@ -13,6 +13,8 @@ from controllers.restaurant_controller import RestaurantController
 from controllers.auth_controller import AuthController
 
 from application.app import FoodDeliveryApp
+
+from exceptions import *
  
 
 # Owner
@@ -103,8 +105,11 @@ app = FoodDeliveryApp()
 controller = app.restaurant_controller
 auth = app.auth_controller
 
+# auth.login("rahaib@gmail.com","Rah@1234A")
 
+# print(auth.current_user())
 
+auth.change_password("Qwerty@1234","Rah@1234A")
 
 
 

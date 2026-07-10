@@ -6,6 +6,8 @@ from models.menu_item import MenuItem
 from models.owner import Owner
 from datetime import datetime
 
+from exceptions import *
+
 
 
 class RestaurantService:
@@ -31,8 +33,7 @@ class RestaurantService:
         rest = self.restaurant_repository.find_by_id(restaurantId)
         if rest:
             return rest
-        else:
-            print("Restaurant Not found...")
+        raise RestaurantNotFoundError("Restaurant not found")
 
 
     def get_all_restaurant(self):
@@ -55,7 +56,7 @@ class RestaurantService:
             self._owner_check(rest)
             if self.restaurant_repository.delete(restaurantId):
                 return
-        raise ValueError("Restaurant not found...")
+        raise RestaurantNotFoundError("Restaurant not found...")
         
 
 
@@ -69,7 +70,7 @@ class RestaurantService:
                 rest.open_restaurant()
                 self.restaurant_repository.update(rest) 
                 return
-            raise ValueError("Restaurant already Opened")      
+            raise RestaurantAlreadyOpenError("Restaurant already Opened")      
         return rest
 
 
@@ -83,9 +84,9 @@ class RestaurantService:
                 rest.close_restaurant()
                 self.restaurant_repository.update(rest) 
                 return 
-            raise ValueError("Restaurant already Closed")      
+            raise RestaurantAlreadyClosedError("Restaurant already Closed")      
                  
-        raise ValueError("Restaurant not found...")
+        raise RestaurantNotFoundError("Restaurant not found...")
             
 
 
@@ -99,7 +100,7 @@ class RestaurantService:
             rest.add_category(category)
             self.restaurant_repository.update(rest)
             return
-        raise ValueError("Restaurant not found...")
+        raise RestaurantNotFoundError("Restaurant not found...")
 
 
 
@@ -111,7 +112,7 @@ class RestaurantService:
             rest.remove_category(categoryId)
             self.restaurant_repository.update(rest)
             return
-        raise ValueError("Restaurant not found...")
+        raise RestaurantNotFoundError("Restaurant not found...")
                  
 
 
@@ -127,8 +128,8 @@ class RestaurantService:
                 category.add_item(item)
                 self.restaurant_repository.update(rest)
                 return item
-            raise ValueError("Category not found")
-        raise ValueError("Restaurant not found...")
+            raise CategoryNotFoundError("Category not found")
+        raise RestaurantNotFoundError("Restaurant not found...")
 
         
       
@@ -140,14 +141,15 @@ class RestaurantService:
             self._owner_check(rest)
             category = rest.find_category(categoryId)
             if category is None:
-                raise ValueError("Category not found.")
+                raise CategoryNotFoundError("Category not found.")
             item = category.find_item(itemId)
             if item:
                 category.remove_item(itemId)
                 self.restaurant_repository.update(rest)
                 return item
-            raise ValueError("Item not found")
-        raise ValueError("Restaurant not found...")
+            raise ItemNotFoundError("Item not found")
+        raise RestaurantNotFoundError("Restaurant not found...")
+    
           
          
 
@@ -156,16 +158,16 @@ class RestaurantService:
 
     def _validate_restaurant(self,restaurant:Restaurant):
         if not restaurant.name.strip():
-            raise ValueError("Restaurant Name Required")
+            raise InvalidNameError("Restaurant Name Required")
            
         if restaurant.owner is None:
-            raise ValueError("Restaurant must have an Owner")
+            raise InvalidOwnerError("Restaurant must have an Owner")
            
         if not restaurant.phone.strip():
-            raise ValueError("Restaurant must have Phone Number")
+            raise InvalidPhoneError("Restaurant must have Phone Number")
            
         if not restaurant.email.strip():
-            raise ValueError("Restaurant must have an Email")
+            raise InvalidEmailError("Restaurant must have an Email")
         
         return restaurant
         
@@ -173,16 +175,16 @@ class RestaurantService:
     def _check_restaurant_duplicates(self,restaurant:Restaurant):
 
         if self.restaurant_repository.find_by_id(restaurant.id):
-            raise ValueError("Restaurant Id already exists")
+            raise DuplicateRestaurantError("Restaurant Id already exists")
         
         if self.restaurant_repository.find_by_name(restaurant.name):
-            raise ValueError("Restaurant Name already exists")
+            raise DuplicateRestaurantError("Restaurant Name already exists")
         
         if self.restaurant_repository.find_by_phone(restaurant.phone):
-            raise ValueError("Restaurant Phone already exists")
+            raise DuplicateRestaurantError("Restaurant Phone already exists")
         
         if self.restaurant_repository.find_by_email(restaurant.email):
-            raise ValueError("Restaurant Email already exists")
+            raise DuplicateRestaurantError("Restaurant Email already exists")
         
         return restaurant
 
@@ -191,11 +193,11 @@ class RestaurantService:
         try:
             opening = datetime.strptime(opening_time, "%H:%M")
             closing = datetime.strptime(closing_time, "%H:%M")
-        except ValueError:
-            raise ValueError("Time must be in HH:MM format and be valid.")
+        except InvalidTimeError:
+            raise InvalidTimeError("Time must be in HH:MM format and be valid.")
         
         if opening >= closing:
-                raise ValueError("Opening time must be earlier than closing time.")
+                raise InvalidTimeError("Opening time must be earlier than closing time.")
         
         return True
         
@@ -203,39 +205,39 @@ class RestaurantService:
         
     def _validate_category(self,category):
         if not category.name.strip():
-            raise ValueError("Category Name Required")
+            raise InvalidCategoryError("Category Name Required")
         
     def _check_duplicate_category(self,restaurant:Restaurant,category:Category):
         for cate in restaurant.categories:
             if cate.id == category.id:
-                raise ValueError("Category Id already exists")
+                raise DuplicateCategoryError("Category Id already exists")
             
             if cate.name == category.name:
-                raise ValueError("Category Name already exists")
+                raise DuplicateCategoryError("Category Name already exists")
     
     def _validate_menu_item(self,item:MenuItem):
         if not item.name.strip():
-            raise ValueError("Category Name Required")
+            raise InvalidMenuItemError("Category Name Required")
 
         if item.price <= 0:
-            raise ValueError("Price must be Greater than Zero")
+            raise InvalidMenuItemError("Price must be Greater than Zero")
         
         if item.preparation_time <= 0:
-            raise ValueError("Price must be Greater than Zero")
+            raise InvalidMenuItemError("Price must be Greater than Zero")
         
     def _check_menuItem_duplicate(self,category:Category,item:MenuItem):
         for menu_ite in category.menu_items:
             if menu_ite.id == item.id:
-                raise ValueError("Menu Item Id already exists")
+                raise DuplicateItemError("Menu Item Id already exists")
             
             if menu_ite.name == item.name:
-                raise ValueError("Menu Item Name already exists")
+                raise DuplicateItemError("Menu Item Name already exists")
             
             
     def _login_required(self):
         login = self.auth_service.is_logged_in()
         if not login:
-            raise ValueError("Login Required.")
+            raise loginRequiredError("Login Required.")
         return login
 
     def _owner_check(self,restaurant:Restaurant):
@@ -243,9 +245,13 @@ class RestaurantService:
         stored_rest = self.restaurant_repository.find_by_id(restaurant.id)
         if stored_rest:
             if stored_rest.owner.id !=current.id:
-                raise PermissionError("Permission Denied.")
+                raise PermissionDeinedError("Permission Denied.")
         else:
             return
+        
+
+
+    
         
         
 
