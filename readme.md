@@ -1,6 +1,6 @@
 # 🍔 Food Delivery Backend (Python)
 
-A production-style **Food Delivery Backend** built in Python to learn backend engineering from the ground up.
+A production-style **Food Delivery Backend** built in Python, developed sprint by sprint to simulate real-world backend engineering practices. The project applies OOP, SOLID principles, layered architecture, authentication, authorization, and design patterns before evolving into a FastAPI and PostgreSQL-based production backend.
 
 Instead of building a simple CRUD application, this project follows a real software engineering workflow, including:
 
