@@ -8,6 +8,53 @@ The format is based on **Keep a Changelog**, and versioning loosely follows **Se
 
 ---
 
+## [v1.5.0] - 2026-07-10
+
+### Added
+
+#### Authentication Module
+
+- Added `OwnerRepository`
+- Added `AuthService`
+- Added `AuthController`
+- Implemented owner registration
+- Implemented owner login
+- Implemented owner logout
+- Added in-memory session management using `current_user`
+
+#### Authorization
+
+- Added login-required authorization checks
+- Restricted restaurant management to authenticated owners
+- Restricted restaurant updates to the restaurant owner
+- Restricted restaurant deletion to the restaurant owner
+- Restricted restaurant open/close operations to the restaurant owner
+- Restricted category management to the restaurant owner
+- Restricted menu management to the restaurant owner
+
+#### Owner Features
+
+- Added password support
+- Added password verification
+- Added password change functionality
+
+#### Exception Handling
+
+- Introduced custom exception hierarchy
+- Replaced generic exceptions with domain-specific exceptions
+- Improved controller-level exception handling
+- Improved service-layer error reporting
+
+### Improved
+
+- Strengthened separation between authentication and restaurant modules
+- Improved security by enforcing ownership rules
+- Reduced unauthorized access to business operations
+- Improved maintainability through custom exceptions
+- Better service and controller architecture
+
+---
+
 ## [v1.4.0] - 2026-07-08
 
 ### Added

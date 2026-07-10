@@ -33,42 +33,44 @@ Each sprint focuses on learning and applying software engineering concepts befor
 
 ```
 food-delivery-backend-python/
-      
-      │
-      ├── Documents/
-      │    |── application_uml.excalidraw.png
-      │    |── category_uml.excalidraw.png
-      │    |── menu_item_uml.excalidraw.png
-      │    |── owner_uml.excalidraw.png
-      │    |── restaurant_controller.excalidraw.png
-      │    |── restaurant_repository_uml.excalidraw.png
-      │    |── restaurant_services_uml.excalidraw.png
-      │    └── restaurant_uml.excalidraw.png      
-      │
-      ├── application/
-      │   └── app.py
-      │
-      ├── controllers/
-      │   └── restaurant_controller.py
-      │
-      ├── services/
-      │   └── restaurant_service.py
-      │
-      ├── repositories/
-      │   └── restaurant_repository.py
-      │
-      ├── models/
-      │   ├── owner.py
-      │   ├── restaurant.py
-      │   ├── category.py
-      │   └── menu_item.py
-      │
-      ├── data/
-      │   └── Restaurants_Repository.json
-      │
-      ├── main.py
-      ├── README.md
-      └── CHANGELOG.md
+
+│
+├── Documents/
+│
+├── application/
+│   └── app.py
+│
+├── controllers/
+│   ├── auth_controller.py
+│   └── restaurant_controller.py
+│
+├── services/
+│   ├── auth_service.py
+│   └── restaurant_service.py
+│
+├── repositories/
+│   ├── owner_repository.py
+│   └── restaurant_repository.py
+│
+├── exceptions/
+│   ├── auth_exceptions.py
+│   ├── authorization_exceptions.py
+│   ├── restaurant_exceptions.py
+│   └── validation_exceptions.py
+│
+├── models/
+│   ├── owner.py
+│   ├── restaurant.py
+│   ├── category.py
+│   └── menu_item.py
+│
+├── data/
+│   ├── Owners_Repository.json
+│   └── Restaurants_Repository.json
+│
+├── main.py
+├── README.md
+└── CHANGELOG.md
 ```
 ---
 
@@ -261,6 +263,49 @@ The application layer is responsible for creating and connecting repositories, s
 
 ---
 
+## Sprint 7 — Authentication & Authorization
+
+Implemented a complete authentication and authorization system for restaurant owners.
+
+### Authentication
+
+- ✅ Owner Registration
+- ✅ Owner Login
+- ✅ Owner Logout
+- ✅ Session Management
+- ✅ Password Verification
+- ✅ Password Change
+- ✅ Duplicate Email Detection
+
+### Authorization
+
+- ✅ Login Required for Protected Operations
+- ✅ Restaurant Ownership Verification
+- ✅ Protected Restaurant Updates
+- ✅ Protected Restaurant Deletion
+- ✅ Protected Category Management
+- ✅ Protected Menu Management
+
+### Authentication Enhancements
+
+- ✅ Custom Exception Hierarchy
+- ✅ Improved Error Handling
+- ✅ Domain-Specific Exceptions
+
+### Concepts Practiced
+
+- Authentication
+- Authorization
+- Session Management
+- Access Control
+- Dependency Injection
+- Custom Exceptions
+- Exception Hierarchy
+- Controller Exception Handling
+- Service Layer Security
+
+---
+
 # 🚀 Upcoming Sprints
 
 - Authentication & Authorization
@@ -319,6 +364,11 @@ This project is designed to strengthen knowledge of:
 - Dependency Injection
 - Layered Architecture
 - Clean Architecture
+- Authentication
+- Authorization
+- Access Control
+- Custom Exceptions
+- Exception Handling
 - Backend Development
 - REST API Development
 
@@ -331,18 +381,19 @@ This project is designed to strengthen knowledge of:
                    │
                    ▼
             FoodDeliveryApp
-                   │
-                   ▼
-        RestaurantController
-                   │
-                   ▼
-        RestaurantService
-                   │
-                   ▼
-      RestaurantRepository
-                   │
-                   ▼
-            JSON Database
+              │         │
+              ▼         ▼
+   AuthController   RestaurantController
+          │                 │
+          ▼                 ▼
+    AuthService      RestaurantService
+          │                 │
+          ▼                 ▼
+ OwnerRepository   RestaurantRepository
+          │                 │
+          └──────────┬──────┘
+                     ▼
+                JSON Database
 ```
 
 Each layer has a single responsibility.
@@ -395,15 +446,15 @@ Refactoring
 
 ## Current Version
 
-**v1.4.0**
+**v1.5.0**
 
 ## Current Sprint
 
-✅ Sprint 6 — Application Layer
+✅ Sprint 7 — Authentication & Authorization
 
 ## Next Sprint
 
-🚀 Sprint 7 — Authentication & Authorization
+🚀 Sprint 8 — Customer Module
 
 ---
 
@@ -415,7 +466,7 @@ Refactoring
 - [x] Sprint 4 — Service Layer
 - [x] Sprint 5 — Controller Layer
 - [x] Sprint 6 — Application Layer
-- [ ] Sprint 7 — Authentication & Authorization
+- [x] Sprint 7 — Authentication & Authorization
 - [ ] Sprint 8 — Customer Module
 - [ ] Sprint 9 — Cart Module
 - [ ] Sprint 10 — Order Management
@@ -434,11 +485,21 @@ This project is being developed incrementally to simulate a production-grade bac
 
 By the end of development, the project will include:
 
-- User Authentication
-- Role-Based Authorization
-- Customer Management
+### Completed
+
 - Restaurant Management
 - Menu Management
+- Owner Authentication
+- Authorization
+- Layered Architecture
+- Repository Pattern
+- Service Layer
+- Controller Layer
+- Application Layer
+
+### Planned
+
+- Customer Management
 - Shopping Cart
 - Order Processing
 - Payment Gateway Integration
