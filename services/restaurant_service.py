@@ -3,6 +3,7 @@ from services.auth_service import AuthService
 from models.restaurant import Restaurant
 from models.category import Category
 from models.menu_item import MenuItem
+from models.owner import Owner
 from datetime import datetime
 
 
@@ -16,6 +17,7 @@ class RestaurantService:
 
     def create_restaurant(self,restaurant:Restaurant):
         self._login_required()
+        restaurant.owner = self.auth_service.get_current_user()
         self._owner_check(restaurant)
         self._validate_restaurant(restaurant)
         self._validate_time(restaurant.opening_time,restaurant.closing_time)
@@ -239,8 +241,11 @@ class RestaurantService:
     def _owner_check(self,restaurant:Restaurant):
         current = self.auth_service.get_current_user()
         stored_rest = self.restaurant_repository.find_by_id(restaurant.id)
-        if stored_rest.owner.id !=current.id:
-            raise PermissionError("Permission Denied.")
+        if stored_rest:
+            if stored_rest.owner.id !=current.id:
+                raise PermissionError("Permission Denied.")
+        else:
+            return
         
         
 

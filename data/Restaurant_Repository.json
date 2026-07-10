@@ -8,6 +8,25 @@
         "Address": "lahore",
         "Opening time": "10:00",
         "Closing time": "22:10",
+        "Is active": true,
+        "Owner": {
+            "Id": 1,
+            "Name": "Rahaib",
+            "Phone Number": "03001234567",
+            "Email": "rahaib@gmail.com",
+            "Password": "Qwerty@1234"
+        },
+        "Categories": []
+    },
+    {
+        "Id": 1,
+        "Name": "BFC",
+        "Description": "this is BFC",
+        "Email": "bfc@gmail.com",
+        "Phone": "03221234567",
+        "Address": "SHEIKHUPURA",
+        "Opening time": "12:00",
+        "Closing time": "22:10",
         "Is active": false,
         "Owner": {
             "Id": 2,
@@ -16,21 +35,6 @@
             "Email": "meer@gmail.com",
             "Password": "Qwerty@1234"
         },
-        "Categories": [
-            {
-                "Id": 1,
-                "Name": "Pizza",
-                "Menu items": [
-                    {
-                        "Id": 2,
-                        "Name": "Margherita pizza",
-                        "Description": "this is Margherita pizza",
-                        "Price": 10.9,
-                        "Avalibility": true,
-                        "Preparation time": 20
-                    }
-                ]
-            }
-        ]
+        "Categories": []
     }
 ]

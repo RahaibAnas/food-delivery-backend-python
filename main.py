@@ -103,19 +103,13 @@ app = FoodDeliveryApp()
 controller = app.restaurant_controller
 auth = app.auth_controller
 
-# auth.login("rahaib@gmail.com","Qwerty@1234")
-
-# print(auth.current_user().id)
-
-# print(controller.add_menu_item(1,2,menu_item_11))
-# print(controller.add_menu_item(1,2,menu_item_12))
-# print(controller.add_menu_item(1,2,menu_item_13))
 
 
 
 
 
-controller.delete_restaurant(1)
+
+
 
 
 
