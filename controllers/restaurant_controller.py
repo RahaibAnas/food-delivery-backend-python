@@ -25,19 +25,19 @@ class RestaurantController:
         except Exception as e:
                 print(f"Unexpected Error: {e}")
 
-    # def get_restaurant_by_id(self,restaurantId:int):
-    #     try:
-    #         print("Service Runs Successfully")
-    #         return self.service.get_resaurant_by_id(restaurantId)
-    #     except ValueError as e:
-    #         print(e)
+    def get_restaurant_by_id(self,restaurantId:int):
+        try:
+            print("Service Runs Successfully")
+            return self.service.get_resaurant_by_id(restaurantId)
+        except Exception as e:
+            print(e)
 
-    # def get_all_restaurant(self):
-    #     try:
-    #         print("Service Runs Successfully")
-    #         return self.service.get_all_restaurant()
-    #     except Exception as e:
-    #         print(e)
+    def get_all_restaurant(self):
+        try:
+            print("Service Runs Successfully")
+            return self.service.get_all_restaurant()
+        except Exception as e:
+            print(e)
 
     def update_restaurant(self,restaurant:Restaurant):
         try:

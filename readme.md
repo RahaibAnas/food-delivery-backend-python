@@ -38,35 +38,41 @@ food-delivery-backend-python/
 ├── Documents/
 │
 ├── application/
-│   └── app.py
+│     └── app.py
 │
 ├── controllers/
-│   ├── auth_controller.py
-│   └── restaurant_controller.py
+│     ├── auth_controller.py
+│     ├── customer_controller.py
+│     └── restaurant_controller.py
 │
 ├── services/
-│   ├── auth_service.py
-│   └── restaurant_service.py
+│     ├── auth_service.py
+│     ├── customer_service.py
+│     └── restaurant_service.py
 │
 ├── repositories/
-│   ├── owner_repository.py
-│   └── restaurant_repository.py
-│
-├── exceptions/
-│   ├── auth_exceptions.py
-│   ├── authorization_exceptions.py
-│   ├── restaurant_exceptions.py
-│   └── validation_exceptions.py
+│     ├── owner_repository.py
+│     ├── customer_repository.py
+│     └── restaurant_repository.py
 │
 ├── models/
-│   ├── owner.py
-│   ├── restaurant.py
-│   ├── category.py
-│   └── menu_item.py
+│     ├── owner.py
+│     ├── customer.py
+│     ├── restaurant.py
+│     ├── category.py
+│     └── menu_item.py
+│
+├── exceptions/
+│     ├── validation_exceptions.py
+│     ├── authentication_exceptions.py
+│     ├── authorization_exceptions.py
+|      ├── customer_exceptions.py
+│     └── repository_exceptions.py
 │
 ├── data/
-│   ├── Owners_Repository.json
-│   └── Restaurants_Repository.json
+│     ├── Owners_Repository.json
+│     ├── Customers_Repository.json
+│     └── Restaurants_Repository.json
 │
 ├── main.py
 ├── README.md
@@ -306,10 +312,48 @@ Implemented a complete authentication and authorization system for restaurant ow
 
 ---
 
+## Sprint 8 — Customer Module
+
+Implemented a complete **Customer Management Module** following the same layered architecture and design principles established in previous sprints.
+
+### Customer Management
+
+- ✅ Register Customer
+- ✅ Login Customer
+- ✅ Logout Customer
+- ✅ Get Customer by ID
+- ✅ Get All Customers
+- ✅ Update Customer Profile
+- ✅ Delete Customer Account
+- ✅ Change Password
+
+### Business Validation
+
+- ✅ Customer Validation
+- ✅ Email Validation
+- ✅ Password Validation
+- ✅ Duplicate Email Detection
+- ✅ Duplicate Phone Detection
+
+### Concepts Practiced
+
+- Customer Management
+- Authentication & Authorization
+- Layered Architecture
+- Repository Pattern
+- Service Layer
+- Controller Layer
+- Dependency Injection
+- Session Management
+- Business Validation
+- Custom Exception Handling
+
+
+---
+
 # 🚀 Upcoming Sprints
 
 - Authentication & Authorization
-- Customer Module
 - Cart System
 - Order Management
 - Payment Integration
@@ -377,23 +421,28 @@ This project is designed to strengthen knowledge of:
 # 🏗️ Architecture
 
 ```
-                Client
-                   │
-                   ▼
-            FoodDeliveryApp
-              │         │
-              ▼         ▼
-   AuthController   RestaurantController
-          │                 │
-          ▼                 ▼
-    AuthService      RestaurantService
-          │                 │
-          ▼                 ▼
- OwnerRepository   RestaurantRepository
-          │                 │
-          └──────────┬──────┘
-                     ▼
-                JSON Database
+                    Client
+                      │
+                      ▼
+              FoodDeliveryApp
+                      │
+                      ▼
+      ┌───────────────┬───────────────|
+      ▼               ▼               ▼
+AuthController  CustomerController  RestaurantController
+      │               │               │
+      ▼               ▼               ▼
+ AuthService   CustomerService   RestaurantService
+      │               │               │
+      ▼               ▼               │
+OwnerRepository CustomerRepository    │
+      │               │               │
+      └─────────┬─────┴───────────────┘
+                ▼
+      RestaurantRepository
+                │
+                ▼
+         JSON Persistence
 ```
 
 Each layer has a single responsibility.
@@ -444,17 +493,17 @@ Refactoring
 
 # 📈 Project Status
 
-## Current Version
+Current Version
 
-**v1.5.0**
+v1.8.0
 
-## Current Sprint
+Current Sprint
 
-✅ Sprint 7 — Authentication & Authorization
+✅ Sprint 8 — Customer Module
 
-## Next Sprint
+Next Sprint
 
-🚀 Sprint 8 — Customer Module
+🚀 Sprint 9 — Cart Module
 
 ---
 
@@ -467,7 +516,7 @@ Refactoring
 - [x] Sprint 5 — Controller Layer
 - [x] Sprint 6 — Application Layer
 - [x] Sprint 7 — Authentication & Authorization
-- [ ] Sprint 8 — Customer Module
+- [x] Sprint 8 — Customer Module
 - [ ] Sprint 9 — Cart Module
 - [ ] Sprint 10 — Order Management
 - [ ] Sprint 11 — Payment Integration
@@ -496,6 +545,7 @@ By the end of development, the project will include:
 - Service Layer
 - Controller Layer
 - Application Layer
+- Customer Module
 
 ### Planned
 

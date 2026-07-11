@@ -8,6 +8,49 @@ The format is based on **Keep a Changelog**, and versioning loosely follows **Se
 
 ---
 
+## [v1.6.0] - 2026-07-11
+
+### Added
+
+#### Customer Module
+
+- Added `Customer` domain model
+- Added `CustomerRepository`
+- Added `CustomerService`
+- Added `CustomerController`
+
+#### Customer Authentication
+
+- Customer Registration
+- Customer Login
+- Customer Logout
+- Session Management
+- Password Change
+
+#### Customer Management
+
+- Get Customer by ID
+- Get All Customers
+- Update Customer Profile
+- Delete Customer Account
+
+#### Business Validation
+
+- Customer validation
+- Duplicate email detection
+- Duplicate phone number detection
+- Password validation
+- Authentication checks
+
+
+### Improved
+
+- Added customer workflow alongside owner workflow
+- Reused layered architecture across multiple modules
+- Improved code reusability
+
+---
+
 ## [v1.5.0] - 2026-07-10
 
 ### Added
